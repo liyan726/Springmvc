@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<decorators defaultdir="/ui">
+
+<!-- 在excludes元素下指定的页面将不会由SiteMesh来装饰 -->
+    <excludes>
+        <pattern>/index.jsp</pattern>
+        <pattern>/editor/*</pattern>
+    </excludes>
+	<decorator name="main" page="basic.jsp">
+		<pattern>/*</pattern>
+	</decorator>
+<decorator name="panel" page="menu.jsp"/>
+</decorators>
