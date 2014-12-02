@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:p="http://www.springframework.org/schema/p" 
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:tx="http://www.springframework.org/schema/tx"
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
@@ -11,45 +9,43 @@
 		http://www.springframework.org/schema/context/spring-context-3.2.xsd
 		http://www.springframework.org/schema/tx
 		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+	<!-- 开启注解 -->
+	<context:annotation-config />
+	<!-- 自动扫描注解包 -->
+	<context:component-scan base-package="com.springmvc" />
 	<!-- 1. 数据源 : DriverManagerDataSource -->
-	  <bean
+	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations" value="classpath:db.properties" />
 	</bean>
-	<context:annotation-config />
-	<bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+	<bean id="datasource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="${jdbc.driverClassName}" />
 		<property name="url" value="${jdbc.url}" />
 		<property name="username" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
 
 	</bean>
-	<!-- 
-		2. mybatis的SqlSession的工厂: SqlSessionFactoryBean 
-		 以及加载mybatis的配置文件 
-	-->
+	<!-- 2. mybatis的SqlSession的工厂: SqlSessionFactoryBean 以及加载mybatis的配置文件 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="datasource"/>
+		<property name="dataSource" ref="datasource" />
 		<property name="configLocation" value="classpath:config/conf.xml" />
 
 	</bean>
 
-	<bean id="SqlSession" class="org.mybatis.spring.SqlSessionTemplate" >
+	<bean id="SqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactory" />
 		<!-- <constructor-arg index="1" value="BATCH" />如果想要进行批量操作可加入这个属性 -->
 	</bean>
-	<bean id="userDaoimpl" class="com.springmvc.dao.UserDaoImpl" >	
-	</bean>
-	
- 	<bean id="dao" class="com.srpingmvc.contrlloer.LoginController" >	
-	</bean> 
-	<!-- 
-		3. mybatis自动扫描加载Sql映射文件 : MapperScannerConfigurer 
-			sqlSessionFactory / basePackage
-	-->
+	<!-- <bean id="userDaoimpl" class="com.springmvc.dao.UserDaoImpl" > </bean> 
+		<bean id="dao" class="com.srpingmvc.contrlloer.LoginController" > </bean> -->
+	<!-- 3. mybatis自动扫描加载Sql映射文件 : MapperScannerConfigurer sqlSessionFactory 
+		/ basePackage -->
 	<!-- 4. 事务管理 : DataSourceTransactionManager -->
-	<bean id="manager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="datasource"/>
+	<bean id="manager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="datasource" />
 	</bean>
 
 	<!-- 5. 使用声明式事务 -->

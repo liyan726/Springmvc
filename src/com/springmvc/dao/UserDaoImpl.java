@@ -5,12 +5,16 @@ import javax.annotation.Resource;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.springmvc.mybaitsmodel.User;
 import com.springmvc.mybatisUtil.MyBatisUtil;
 
+
+@Component("u")
 public class UserDaoImpl implements UserDao {
-	  @Autowired
+	
+	@Autowired
 	private SqlSession sqlSession;
 
 	@Override

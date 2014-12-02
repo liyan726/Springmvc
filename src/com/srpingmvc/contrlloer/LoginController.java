@@ -1,5 +1,6 @@
 package com.srpingmvc.contrlloer;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ import com.srpingmvc.entry.MesModel;
 
 @Controller
 public class LoginController {
-	@Autowired
+	@Resource(name="u")
 	private UserDaoImpl userDaoimpl;
 
 	@RequestMapping("/login")
