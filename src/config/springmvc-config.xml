@@ -34,6 +34,7 @@
         <property name="maxUploadSize" value="10240000"/>     
     </bean>
 
+
 	<!-- 拦截器 -->
 	<mvc:interceptors>
 			<mvc:interceptor>

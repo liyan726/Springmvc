@@ -7,7 +7,8 @@
 	<typeAliases>
 		<package name="com.springmvc.mybaitsmodel" />
 	</typeAliases>
-	<environments default="development">
+	<!-- 被spring 接管 -->
+	<!-- <environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
@@ -17,7 +18,7 @@
 				<property name="password" value="${password}" />
 			</dataSource>
 		</environment>
-	</environments>
+	</environments> -->
 	<mappers>
 		<mapper resource="com/springmvc/mybaitsmodel/userMapping.xml" />
 	</mappers>
