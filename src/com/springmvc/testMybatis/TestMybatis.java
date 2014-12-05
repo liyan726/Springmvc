@@ -1,4 +1,4 @@
-package com.springmvc.mybaitsmodel;
+package com.springmvc.testMybatis;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.springmvc.dao.UserDao;
 import com.springmvc.dao.UserDaoImpl;
+import com.springmvc.mybaitsmodel.User;
 import com.springmvc.mybatisUtil.MyBatisUtil;
 
 

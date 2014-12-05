@@ -6,15 +6,16 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.springmvc.mybaitsmodel.User;
 import com.springmvc.mybatisUtil.MyBatisUtil;
 
 
-@Component("u")
+@Repository("dao")
 public class UserDaoImpl implements UserDao {
 	
-	@Autowired
+	@Resource
 	private SqlSession sqlSession;
 
 	@Override
@@ -24,9 +25,9 @@ public class UserDaoImpl implements UserDao {
 	User u =new User();
 	u.setName("ÀîËÄ");
 	u.setAge(88);
-	User user = sqlSession.selectOne(User.class.getName()+".selectUserByid", id);
+	User user = sqlSession.selectOne("com.srpingmvc.entry"+".selectUserByid", id);
 	
-	int i = sqlSession.insert(User.class.getName()+".inserUser", u);
+	//int i = sqlSession.insert(User.class.getName()+".inserUser", u);
 	System.out.println(user.getName());
 	
 		return user;

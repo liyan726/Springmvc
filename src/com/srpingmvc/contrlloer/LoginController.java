@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.springmvc.dao.UserDao;
 import com.springmvc.dao.UserDaoImpl;
-import com.springmvc.mybaitsmodel.TestMybatis;
 import com.springmvc.mybaitsmodel.User;
+import com.springmvc.testMybatis.TestMybatis;
 import com.srpingmvc.entry.MesModel;
 
 @Controller
 public class LoginController {
-	@Resource(name="u")
+	@Resource(name="dao")
 	private UserDaoImpl userDaoimpl;
 
 	@RequestMapping("/login")

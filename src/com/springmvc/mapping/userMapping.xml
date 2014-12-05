@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.springmvc.mybaitsmodel.User">
+<mapper namespace="com.springmvc.mybaitsInterMapper.UserMapper">
 	<!-- 根据id查询得到user对象 -->
 	
 	<select id="selectUserByid" parameterType="int" resultType="User">

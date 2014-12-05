@@ -3,10 +3,9 @@
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<!-- 两个环境模式。environments可以配置多个环境 development:开发模式 work:工作模式 -->
-	<properties resource="db.properties" />
-	<typeAliases>
+	<!-- <typeAliases>
 		<package name="com.springmvc.mybaitsmodel" />
-	</typeAliases>
+	</typeAliases> -->
 	<!-- 被spring 接管 -->
 	<!-- <environments default="development">
 		<environment id="development">
@@ -18,8 +17,15 @@
 				<property name="password" value="${password}" />
 			</dataSource>
 		</environment>
-	</environments> -->
+	</environments> 
+	<mapper resource="com/springmvc/mybaitsmodel/userMapping.xml" />
+	
+	
+	-->
+	<!-- <mappers>
+		<package name="com.springmvc.mybaitsmodel"/>
+	</mappers> -->
 	<mappers>
-		<mapper resource="com/springmvc/mybaitsmodel/userMapping.xml" />
+	     <package name="com.springmvc.mybaitsInterMapper"/>
 	</mappers>
 </configuration>
